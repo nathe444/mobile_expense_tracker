@@ -11,23 +11,26 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title,
-                style: const TextStyle(
-                    color: Colors.black54, fontSize: 20.0, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 30.0),
+            Text(expense.title, style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 25.0),
             Row(
               children: [
                 Text(
                   '\$${expense.amount.toStringAsFixed(2)}',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18.0, color: Colors.black),
                 ),
                 const Spacer(),
                 Row(
                   children: [
                     Icon(categoryIcons[expense.category]),
                     const SizedBox(width: 5.00),
-                    Text(expense.formattedDate)
+                    Text(
+                      expense.formattedDate,
+                      style: const TextStyle(color: Colors.black87),
+                    )
                   ],
                 )
               ],
